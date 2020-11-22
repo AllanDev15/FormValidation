@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <link rel="stylesheet" href="css/formValidation.css">
+</head>
+
+<body>
+  <div class="container">
+    <form action="#" class="validate-form" novalidate>
+      <div class="form-field">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="John" class="form-input" required>
+        <div class="feedback">
+          <p class="input-valid">Bien</p>
+          <p class="input-invalid validated" style="display: block;">Necesitas escribir tu nombre</p>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Doe" class="form-input" required>
+        <div class="feedback">
+          <p class="input-valid validated" style="display: block;">Bien</p>
+          <p class="input-invalid">Necesitas escribir tu apellido</p>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/formValidation.js"></script>
+</body>
+
+</html>
