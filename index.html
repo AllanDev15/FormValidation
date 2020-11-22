@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Validation</title>
+  <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/formValidation.css">
 </head>
 
@@ -28,9 +29,29 @@
           <p class="input-invalid">Necesitas escribir tu apellido</p>
         </div>
       </div>
+
+      <div class="form-field">
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Doe" class="form-input" required>
+        <div class="feedback">
+          <p class="input-valid validated" style="display: block;">Bien</p>
+          <p class="input-invalid">Necesitas escribir tu apellido</p>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="telefono">Telefono:</label>
+        <input type="tel" name="telefono" id="telefono" class="form-input custom phone" required>
+        <div class="feedback">
+          <p class="input-valid validated" style="display: block;">Bien</p>
+          <p class="input-invalid">Necesitas escribir tu telefono</p>
+        </div>
+      </div>
     </form>
   </div>
 
+  <script src="js/cleave.min.js"></script>
+  <script src="js/cleave-phone.mx.js"></script>
   <script src="js/formValidation.js"></script>
 </body>
 

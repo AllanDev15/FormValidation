@@ -16,7 +16,7 @@ html {
 .form-field {
   position: relative;
   margin-bottom: 2rem;
-  width: 250px;
+  width: 200px;
 }
 .form-field label {
   font-size: 1rem;
@@ -26,6 +26,18 @@ html {
   font-size: 1rem;
   padding: 5px 10px;
   width: 100%;
+}
+.form-field i.checked {
+  opacity: 1;
+}
+.form-field i {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  font-size: 1rem;
+  top: 50%;
+  right: 10px;
+  transition: opacity 0.2s ease;
 }
 
 .input-valid,
