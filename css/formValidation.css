@@ -1,0 +1,51 @@
+/* CSS para el formulario de Ejemplo */
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 250px;
+}
+.form-field label {
+  font-size: 1rem;
+  display: block;
+}
+.form-field .form-input {
+  font-size: 1rem;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.input-valid,
+.input-invalid {
+  position: absolute;
+  bottom: -20px;
+  left: 0px;
+  display: none;
+  margin: 0px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 0.875rem;
+}
+.validated {
+  height: auto;
+  opacity: 1;
+}
+.input-valid.validated {
+  color: green;
+}
+.input-invalid.validated {
+  color: red;
+}
