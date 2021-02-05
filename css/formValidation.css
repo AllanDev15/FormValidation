@@ -41,23 +41,32 @@ html {
 }
 
 .input-valid,
-.input-invalid {
+.input-invalid,
+.invalid-format {
   position: absolute;
   bottom: -20px;
   left: 0px;
-  display: none;
   margin: 0px;
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
   font-size: 0.875rem;
 }
-.validated {
-  height: auto;
+
+.fa-times.show {
   opacity: 1;
+  color: red;
 }
-.input-valid.validated {
+.fa-check.show {
+  opacity: 1;
   color: green;
 }
-.input-invalid.validated {
+.feedback .input-invalid.show,
+.feedback .invalid-format.show {
+  opacity: 1;
   color: red;
+}
+.feedback .input-valid.show {
+  opacity: 1;
+  color: green;
 }
