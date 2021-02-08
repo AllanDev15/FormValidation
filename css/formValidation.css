@@ -1,31 +1,77 @@
 /* CSS para el formulario de Ejemplo */
-html {
-  box-sizing: border-box;
+:root {
+  --blue: #005af5;
+  --rgbBlue: 0, 90, 245;
+  --red: #ff1432;
+  --rgbRed: 255, 20, 50;
+  --green: #28aa28;
+  --rgbGreen: 40, 170, 40;
+  --lightBackground: #f9f9fa;
+  --darkBackground: #414b5a;
+}
+body {
+  margin: 0;
+  background-color: var(--lightBackground);
 }
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
+html {
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+label {
+  color: rgba(0, 0, 0, 0.8);
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 30px;
+  height: 100vh;
+}
+.container h1 {
+  text-align: center;
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 0.625rem;
+}
+
+.validate-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-field {
   position: relative;
   margin-bottom: 2rem;
-  width: 200px;
+  width: 30%;
 }
 .form-field label {
   font-size: 1rem;
   display: block;
+  margin-bottom: 0.25rem;
 }
 .form-field .form-input {
   font-size: 1rem;
   padding: 5px 10px;
   width: 100%;
+  border: 1px solid #a0aaaf;
+  transition: border 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.form-input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+.form-field .form-input:hover,
+.form-field .form-input:active {
+  border: 1px solid #646e73;
+}
+.form-field .form-input:focus {
+  border: 1px solid #008891;
+  outline: none;
+  box-shadow: 0 0 2px 2px rgba(var(--rgbBlue), 0.45);
 }
 .form-field i.checked {
   opacity: 1;
@@ -35,7 +81,7 @@ html {
   pointer-events: none;
   opacity: 0;
   font-size: 1rem;
-  top: 50%;
+  top: 55%;
   right: 10px;
   transition: opacity 0.2s ease;
 }
@@ -55,18 +101,32 @@ html {
 
 .fa-times.show {
   opacity: 1;
-  color: red;
+  color: var(--red);
 }
 .fa-check.show {
   opacity: 1;
-  color: green;
+  color: var(--green);
 }
 .feedback .input-invalid.show,
 .feedback .invalid-format.show {
   opacity: 1;
-  color: red;
+  color: var(--red);
 }
 .feedback .input-valid.show {
   opacity: 1;
-  color: green;
+  color: var(--green);
 }
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background: var(--darkBackground);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  label {
+    color: var(--lightBackground);
+  }
+} */
