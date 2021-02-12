@@ -1,17 +1,9 @@
 /* CSS para el formulario de Ejemplo */
-:root {
-  --blue: #005af5;
-  --rgbBlue: 0, 90, 245;
-  --red: #ff1432;
-  --rgbRed: 255, 20, 50;
-  --green: #28aa28;
-  --rgbGreen: 40, 170, 40;
-  --lightBackground: #f9f9fa;
-  --darkBackground: #414b5a;
-}
+
 body {
+  color: var(--color);
   margin: 0;
-  background-color: var(--lightBackground);
+  background-color: var(--background);
 }
 *,
 *::before,
@@ -19,11 +11,21 @@ body {
   box-sizing: inherit;
 }
 html {
+  font-size: 18px;
   box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
 }
-label {
-  color: rgba(0, 0, 0, 0.8);
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--color);
+}
+p,
+label,
+span {
+  color: var(--color2);
 }
 
 .container {
@@ -50,26 +52,27 @@ label {
   width: 30%;
 }
 .form-field label {
-  font-size: 1rem;
+  font-size: 0.8889rem;
   display: block;
   margin-bottom: 0.25rem;
 }
-.form-field .form-input {
+input.form-input {
   font-size: 1rem;
   padding: 5px 10px;
   width: 100%;
-  border: 1px solid #a0aaaf;
-  transition: border 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid #a2aaaf;
+  transition: all 0.3s ease;
+  color: var(--dark);
 }
-.form-input::placeholder {
-  color: rgba(0, 0, 0, 0.35);
+input.form-input::placeholder {
+  color: #a2a5a8;
 }
-.form-field .form-input:hover,
-.form-field .form-input:active {
+input.form-input:hover,
+input.form-input:active {
   border: 1px solid #646e73;
 }
-.form-field .form-input:focus {
-  border: 1px solid #008891;
+input.form-input:focus {
+  border: 1px solid var(--blue);
   outline: none;
   box-shadow: 0 0 2px 2px rgba(var(--rgbBlue), 0.45);
 }
@@ -92,8 +95,8 @@ label {
   position: absolute;
   bottom: -20px;
   left: 0px;
-  margin: 0px;
-  pointer-events: none;
+  margin: 2px 0px 0px 0px;
+  /* pointer-events: none; */
   opacity: 0;
   transition: opacity 0.2s ease;
   font-size: 0.875rem;
@@ -116,17 +119,3 @@ label {
   opacity: 1;
   color: var(--green);
 }
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background: var(--darkBackground);
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  p,
-  label {
-    color: var(--lightBackground);
-  }
-} */
