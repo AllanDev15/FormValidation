@@ -1,0 +1,26 @@
+:root {
+  --black: #262728;
+  --white: #f1f6f8;
+  --color: #f1f6f8;
+  --color2: #edf2f4;
+  --red: #ff5f73;
+  --rgbRed: 255, 85, 105;
+  --green: #3cbe3c;
+  --rgbGreen: 60, 190, 60;
+  --blue: #3291f5;
+  --rgbBlue: 50, 145, 245;
+  --background: #2d3741;
+}
+input.form-input {
+  background-color: var(--color);
+  border: 1px solid var(--background);
+}
+input.form-input::placeholder {
+  color: #8e9194;
+}
+input.form-input:hover {
+  background-color: #f9f9fa;
+}
+input.form-input:active {
+  border: 1px solid var(--background);
+}
