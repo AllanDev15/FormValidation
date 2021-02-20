@@ -7,7 +7,15 @@
   --rgbRed: 245, 20, 50;
   --green: #28aa28;
   --rgbGreen: 40, 170, 40;
-  --blue: #005af5;
-  --rgbBlue: 0, 90, 245;
+  --blue: #145af5;
+  --rgbBlue: 20, 90, 245;
+  --darkBlue: #0041dc;
   --background: #f9f9fa;
+}
+input.form-input::placeholder {
+  color: #a2a5a8;
+}
+input.form-input:hover,
+input.form-input:active {
+  border: 1px solid #646e73;
 }

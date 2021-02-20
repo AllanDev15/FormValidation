@@ -3,11 +3,11 @@ const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-s
 const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 
 if (userPrefersDark) {
-  document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="css/light.css">');
+  document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="css/dark.css">');
 } else if (userPrefersLight) {
   document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="css/light.css">');
 } else {
-  document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="css/light.css">');
+  document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="css/dark.css">');
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -11,9 +11,14 @@ body {
   box-sizing: inherit;
 }
 html {
-  font-size: 18px;
+  font-size: 16px;
   box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
 }
 h1,
 h2,
@@ -49,32 +54,32 @@ span {
 .form-field {
   position: relative;
   margin-bottom: 2rem;
-  width: 30%;
+  width: 70%;
+}
+@media (min-width: 768px) {
+  .form-field {
+    width: 30%;
+  }
 }
 .form-field label {
-  font-size: 0.8889rem;
+  font-size: 16px;
   display: block;
   margin-bottom: 0.25rem;
 }
 input.form-input {
-  font-size: 1rem;
+  font-size: 18px;
   padding: 5px 10px;
   width: 100%;
   border: 1px solid #a2aaaf;
+  border-radius: 4px;
   transition: all 0.3s ease;
-  color: var(--dark);
+  color: var(--black);
 }
-input.form-input::placeholder {
-  color: #a2a5a8;
-}
-input.form-input:hover,
-input.form-input:active {
-  border: 1px solid #646e73;
-}
+
 input.form-input:focus {
-  border: 1px solid var(--blue);
+  border: 1px solid var(--blue) !important;
   outline: none;
-  box-shadow: 0 0 2px 2px rgba(var(--rgbBlue), 0.45);
+  box-shadow: 0 0 2px 3px rgba(var(--rgbBlue), 0.45);
 }
 .form-field i.checked {
   opacity: 1;
@@ -83,7 +88,7 @@ input.form-input:focus {
   position: absolute;
   pointer-events: none;
   opacity: 0;
-  font-size: 1rem;
+  font-size: 18px;
   top: 55%;
   right: 10px;
   transition: opacity 0.2s ease;
@@ -96,10 +101,10 @@ input.form-input:focus {
   bottom: -20px;
   left: 0px;
   margin: 2px 0px 0px 0px;
-  /* pointer-events: none; */
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
-  font-size: 0.875rem;
+  font-size: 0.8333rem;
 }
 
 .fa-times.show {
@@ -118,4 +123,44 @@ input.form-input:focus {
 .feedback .input-valid.show {
   opacity: 1;
   color: var(--green);
+}
+
+input[type='submit'].btn {
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.btn {
+  padding: 8px 16px;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn:focus {
+  outline: none;
+}
+.btn.primary {
+  color: var(--white);
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 5, 0.4);
+}
+.btn.primary:hover {
+  border: 1px solid var(--darkBlue);
+  background-color: var(--darkBlue);
+}
+.btn.primary:focus {
+  box-shadow: inset 0px 0px 0px 1px var(--background), 0px 0px 1px 1px var(--blue);
+}
+.btn.secondary {
+  background-color: var(--background);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+.btn.secondary:hover {
+  background-color: var(--blue);
+  color: var(--white);
 }

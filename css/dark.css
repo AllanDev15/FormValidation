@@ -3,12 +3,13 @@
   --white: #f1f6f8;
   --color: #f1f6f8;
   --color2: #edf2f4;
-  --red: #ff5f73;
+  --red: #ff5569;
   --rgbRed: 255, 85, 105;
   --green: #3cbe3c;
   --rgbGreen: 60, 190, 60;
-  --blue: #3291f5;
-  --rgbBlue: 50, 145, 245;
+  --blue: #1e6ef5;
+  --rgbBlue: 30, 110, 245;
+  --darkBlue: #0555dc;
   --background: #2d3741;
 }
 input.form-input {
@@ -23,4 +24,7 @@ input.form-input:hover {
 }
 input.form-input:active {
   border: 1px solid var(--background);
+}
+.btn.primary {
+  box-shadow: none;
 }
