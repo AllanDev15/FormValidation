@@ -46,17 +46,20 @@
         <label for="telefono">Telefono:</label>
         <input type="tel" id="telefono" class="form-input custom phone">
         <div class="feedback">
-          <p class="invalid-format">El formato no es correcto</p>
+          <p class="input-invalid">El formato no es correcto</p>
         </div>
       </div>
 
-      <input type="submit" value="Enviar" class="btn primary">
+      <!-- <input type="submit" value="Enviar" class="btn primary"> -->
+      <button type="submit" class="btn primary" id="submit">
+        <span class="btn-text">Enviar</span>
+      </button>
     </form>
   </div>
 
   <script src="js/cleave.min.js"></script>
   <script src="js/cleave-phone.mx.js"></script>
-  <script src="js/formValidation.js"></script>
+  <script src="js/formValidation.js" charset="utf-8"></script>
 </body>
 
 </html>
