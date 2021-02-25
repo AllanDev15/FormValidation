@@ -13,7 +13,7 @@ body {
 html {
   font-size: 16px;
   box-sizing: border-box;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 @media (min-width: 768px) {
   html {
@@ -26,6 +26,7 @@ h3,
 h4,
 h5 {
   color: var(--color);
+  font-family: 'Source Sans Pro', sans-serif;
 }
 p,
 label,
@@ -37,7 +38,7 @@ span {
   max-width: 1100px;
   margin: 0 auto;
   padding: 30px;
-  height: 100vh;
+  height: 80vh;
 }
 .container h1 {
   text-align: center;
@@ -53,7 +54,7 @@ span {
 
 .form-field {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 2.1111rem;
   width: 70%;
 }
 @media (min-width: 768px) {
@@ -67,6 +68,7 @@ span {
   margin-bottom: 0.25rem;
 }
 input.form-input {
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   padding: 5px 10px;
   width: 100%;
@@ -75,36 +77,38 @@ input.form-input {
   transition: all 0.3s ease;
   color: var(--black);
 }
-
 input.form-input:focus {
   border: 1px solid var(--blue) !important;
   outline: none;
   box-shadow: 0 0 2px 3px rgba(var(--rgbBlue), 0.45);
 }
-.form-field i.checked {
-  opacity: 1;
+input.form-input.empty {
+  background-color: rgba(var(--rgbRed), 0.05);
+  border: 1px solid var(--red) !important;
+}
+input.form-input.invalid {
+  background-color: rgba(var(--rgbYellow), 0.05);
+  border: 1px solid var(--yellow) !important;
 }
 .form-field i {
   position: absolute;
   pointer-events: none;
   opacity: 0;
-  font-size: 18px;
+  font-size: 1rem;
   top: 55%;
   right: 10px;
   transition: opacity 0.2s ease;
 }
 
-.input-valid,
-.input-invalid,
-.invalid-format {
+.feedback .message {
   position: absolute;
   bottom: -20px;
   left: 0px;
   margin: 2px 0px 0px 0px;
-  pointer-events: none;
+  /* pointer-events: none; */
   opacity: 0;
   transition: opacity 0.2s ease;
-  font-size: 0.8333rem;
+  font-size: 0.7778rem;
 }
 
 .fa-times.show {
@@ -115,13 +119,22 @@ input.form-input:focus {
   opacity: 1;
   color: var(--green);
 }
-.feedback .input-invalid.show {
+.fa-exclamation-triangle.show {
   opacity: 1;
+  color: var(--yellow);
+}
+
+.feedback .message.show {
+  opacity: 1;
+}
+.message.empty.show {
   color: var(--red);
 }
-.feedback .input-valid.show {
-  opacity: 1;
+.message.valid.show {
   color: var(--green);
+}
+.message.invalid.show {
+  color: var(--yellow);
 }
 
 button[type='submit'].btn {
@@ -212,4 +225,13 @@ button[type='submit'].btn.primary.valid:focus {
 .btn.secondary:hover {
   background-color: var(--blue);
   color: var(--white);
+}
+
+.wave {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.wave path {
+  fill: var(--blue);
 }

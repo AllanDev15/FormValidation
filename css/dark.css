@@ -7,9 +7,11 @@
   --rgbRed: 255, 85, 105;
   --green: #3cbe3c;
   --rgbGreen: 60, 190, 60;
-  --blue: #1e6ef5;
-  --rgbBlue: 30, 110, 245;
-  --darkBlue: #0555dc;
+  --blue: #1E82F5;
+  --rgbBlue: 30, 130, 245;
+  --darkBlue: #0A64E6;
+  --yellow: #ffb43c;
+  --rgbYellow: 255, 180, 60;
   --background: #2d3741;
 }
 input.form-input {
@@ -24,6 +26,12 @@ input.form-input:hover {
 }
 input.form-input:active {
   border: 1px solid var(--background);
+}
+input.form-input.empty {
+  background-color: #f8edf0;
+}
+input.form-input.invalid {
+  background-color: #f8f5f0;
 }
 .btn.primary {
   box-shadow: none;

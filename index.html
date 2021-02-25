@@ -7,6 +7,7 @@
   <title>Form Validation</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/formValidation.css">
 </head>
@@ -19,8 +20,8 @@
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" placeholder="Maya" class="form-input">
         <div class="feedback">
-          <!-- <p class="input-valid">Bien</p> -->
-          <p class="input-invalid">Necesitas escribir tu nombre</p>
+          <!-- <p class="message valid">Bien</p> -->
+          <p class="message empty">Necesitas escribir tu nombre</p>
         </div>
       </div>
 
@@ -28,8 +29,8 @@
         <label for="apellidoPaterno">Apellido Paterno:</label>
         <input type="text" id="apellidoPaterno" placeholder="Heaney" class="form-input">
         <div class="feedback">
-          <p class="input-valid">Bien</p>
-          <p class="input-invalid">Necesitas escribir tu apellido</p>
+          <p class="message valid">Bien</p>
+          <p class="message empty">Necesitas escribir tu apellido</p>
         </div>
       </div>
 
@@ -37,16 +38,17 @@
         <label for="apellidoMaterno">Apellido Materno:</label>
         <input type="text" id="apellidoMaterno" placeholder="White" class="form-input">
         <div class="feedback">
-          <p class="input-valid">Bien</p>
-          <p class="input-invalid">Necesitas escribir tu apellido</p>
+          <p class="message valid">Bien</p>
+          <p class="message empty">Necesitas escribir tu apellido</p>
         </div>
       </div>
 
       <div class="form-field">
         <label for="telefono">Telefono:</label>
-        <input type="tel" id="telefono" class="form-input custom phone">
+        <input type="tel" id="telefono" placeholder="55-xxxx-xxxx" class="form-input custom phone">
         <div class="feedback">
-          <p class="input-invalid">El formato no es correcto</p>
+          <p class="message empty">Necesitas escribir un numero telefonico</p>
+          <p class="message invalid">Asegurate que el formato sea correcto</p>
         </div>
       </div>
 
@@ -56,6 +58,11 @@
       </button>
     </form>
   </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 270" class="wave">
+    <path fill-opacity="0.7"
+      d="M 0,400 C 0,400 0,200 0,200 C 136.17857142857144,181.32142857142856 272.3571428571429,162.64285714285714 396,167 C 519.6428571428571,171.35714285714286 630.7500000000001,198.74999999999997 755,220 C 879.2499999999999,241.25000000000003 1016.6428571428571,256.3571428571429 1133,252 C 1249.357142857143,247.64285714285714 1344.6785714285716,223.82142857142856 1440,200 C 1440,200 1440,400 1440,400 Z">
+    </path>
+  </svg>
 
   <script src="js/cleave.min.js"></script>
   <script src="js/cleave-phone.mx.js"></script>

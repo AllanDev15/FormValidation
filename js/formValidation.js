@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formInputs.forEach((inp) => {
       const infoInput = {
         id: inp.id,
-        isValid: false,
+        state: 'empty',
       };
 
       inputsArray = [...inputsArray, infoInput];
@@ -48,10 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       e.target.classList.add('loading');
       setTimeout(() => {
-        if (inputsArray.some((inp) => inp.isValid === false)) {
+        if (inputsArray.some((inp) => inp.state !== 'valid')) {
           e.target.classList.add('invalid');
           e.target.querySelector('span').innerText = 'Datos Incorrectos';
           e.target.classList.remove('loading');
+
+          const isValid = inputsArray.some((inp) => inp.state !== 'valid');
+          if (isValid) {
+            inputsArray.forEach((inp) => {
+              const input = document.querySelector(`#${inp.id}`);
+              if (inp.state === 'empty') {
+                empty(input);
+              } else if (inp.state === 'invalid') {
+                invalid(input);
+              }
+            });
+          }
         } else {
           e.target.classList.add('valid');
           e.target.querySelector('span').innerText = '\u2713 Todo bien!';
@@ -74,6 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
     input.parentElement.appendChild(errorIcon);
     input.parentElement.appendChild(goodIcon);
   });
+  document.querySelectorAll('.form-input.custom').forEach((input) => {
+    const warnIcon = document.createElement('i');
+    warnIcon.className = 'fas fa-exclamation-triangle';
+    input.parentElement.appendChild(warnIcon);
+  });
 
   // Valida el contenido del input para mostrar u ocultar los iconos y mensajes de feedback
   /**
@@ -81,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function validateEmpty(e) {
     if (e.target.value === '') {
-      invalid(e);
+      empty(e.target);
     } else if (e.target.value !== '') {
-      valid(e);
+      valid(e.target);
     }
   }
 
@@ -92,39 +109,66 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Event} e
    */
   function validatePhoneFormat(e) {
-    if (/\d{2}-(\d{4}-)(\d{4})/g.test(e.target.value)) {
-      valid(e);
+    if (e.target.value === '') {
+      empty(e.target);
+      console.log('empty');
+    } else if (/\d{2}-(\d{4}-)(\d{4})/g.test(e.target.value) && e.target.value.length === 12) {
+      valid(e.target);
+      console.log('valid');
     } else {
-      invalid(e);
+      invalid(e.target);
+      console.log('invalid');
     }
   }
 
   function valid(e) {
-    const error = e.target.parentElement.querySelector('.fa-times');
-    const good = e.target.parentElement.querySelector('.fa-check');
-    const invalidFormatFeedback = e.target.parentElement.querySelector('.feedback .input-invalid');
-    const validFormatFeedback = e.target.parentElement.querySelector('.feedback .input-valid');
+    const icons = e.parentElement.querySelectorAll('.fas');
+    const good = e.parentElement.querySelector('.fa-check');
+    const messages = e.parentElement.querySelectorAll('.message');
+    const validMessage = e.parentElement.querySelector('.feedback .message.valid');
+    e.classList.remove('empty');
+    e.classList.remove('invalid');
+    icons.forEach((icon) => icon.classList.remove('show'));
     good.classList.add('show');
-    error.classList.remove('show');
-    if (invalidFormatFeedback) invalidFormatFeedback.classList.remove('show');
-    if (validFormatFeedback) validFormatFeedback.classList.add('show');
-    // Cuando es valido se busca su id en los objetos y se actualiza su atributo isValid a verdadero
+    messages.forEach((message) => message.classList.remove('show'));
+    if (validMessage) validMessage.classList.add('show');
+    // Cuando es valido se busca su id en los objetos y se actualiza su atributo state a verdadero
     inputsArray.forEach((inp) => {
-      if (inp.id === e.target.id) inp.isValid = true;
+      if (inp.id === e.id) inp.state = 'valid';
+    });
+  }
+
+  function empty(e) {
+    const icons = e.parentElement.querySelectorAll('.fas');
+    const error = e.parentElement.querySelector('.fa-times');
+    const messages = e.parentElement.querySelectorAll('.message');
+    const emptyMessage = e.parentElement.querySelector('.feedback .message.empty');
+    e.classList.remove('invalid');
+    e.classList.add('empty');
+    icons.forEach((icon) => icon.classList.remove('show'));
+    error.classList.add('show');
+    messages.forEach((message) => message.classList.remove('show'));
+    if (emptyMessage) emptyMessage.classList.add('show');
+    // Cuando es valido se busca su id en los objetos y se actualiza su atributo state a verdadero
+    inputsArray.forEach((inp) => {
+      if (inp.id === e.id) inp.state = 'empty';
     });
   }
 
   function invalid(e) {
-    const error = e.target.parentElement.querySelector('.fa-times');
-    const good = e.target.parentElement.querySelector('.fa-check');
-    const invalidFormatFeedback = e.target.parentElement.querySelector('.feedback .input-invalid');
-    const validFormatFeedback = e.target.parentElement.querySelector('.feedback .input-valid');
-    good.classList.remove('show');
-    error.classList.add('show');
-    if (invalidFormatFeedback) invalidFormatFeedback.classList.add('show');
-    if (validFormatFeedback) validFormatFeedback.classList.remove('show');
+    const icons = e.parentElement.querySelectorAll('.fas');
+    const warn = e.parentElement.querySelector('.fa-exclamation-triangle');
+    const messages = e.parentElement.querySelectorAll('.message');
+    const invalidMessage = e.parentElement.querySelector('.feedback .message.invalid');
+    icons.forEach((icon) => icon.classList.remove('show'));
+    e.classList.add('invalid');
+    e.classList.remove('empty');
+    warn.classList.add('show');
+    messages.forEach((message) => message.classList.remove('show'));
+    if (invalidMessage) invalidMessage.classList.add('show');
+    // Cuando es valido se busca su id en los objetos y se actualiza su atributo state a verdadero
     inputsArray.forEach((inp) => {
-      if (inp.id === e.target.id) inp.isValid = false;
+      if (inp.id === e.id) inp.state = 'invalid';
     });
   }
 

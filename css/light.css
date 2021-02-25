@@ -10,6 +10,8 @@
   --blue: #145af5;
   --rgbBlue: 20, 90, 245;
   --darkBlue: #0041dc;
+  --yellow: #f5af32;
+  --rgbYellow: 245, 175, 50;
   --background: #f9f9fa;
 }
 input.form-input::placeholder {
